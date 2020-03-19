@@ -1,6 +1,7 @@
 // Write a function that takes user input and creates a password
 // based on that input and returns it
 function generatePassword() {
+
     // Prompts the user about length of password
     var howLong = prompt("What length of password would you like? (between 8 and 128 characters)");
 
@@ -46,6 +47,8 @@ function generatePassword() {
         // adds ranChar to password
         password += ranChar;
     }
+    
+    // returns password to writepassword function
     return password;
 }
   
