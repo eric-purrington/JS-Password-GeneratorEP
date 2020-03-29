@@ -4,10 +4,17 @@ function generatePassword() {
 
     // Prompts the user about length of password
     var howLong = prompt("What length of password would you like? (between 8 and 128 characters)");
-
+    howLong = parseInt(howLong);
     // Changes recieved string into integer 
     howLong = parseInt(howLong);
 
+    if (howLong < 8) {
+        alert("Error: Must be at least 8 characters long.")
+        return "Try again";
+    } else if (howLong > 128) {
+        alert("Error: Password cannot exceed 128 characters.")
+        return "Try again";
+    }
     // Asks series of questions about characters used in password
     var lclChar = confirm("Would you like to include lowercase letters? e.g. vwei");
     var uclChar = confirm("Would you like to include uppercase letter? e.g. APRD");
@@ -36,6 +43,9 @@ function generatePassword() {
     }
     if (speChar) {
         all += spe;
+    } else {
+        alert("Error: Cannot form password with no characters. Please try again.")
+        return "Try again";
     }
 
     // runs through the desired length of password times
